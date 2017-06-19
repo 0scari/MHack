@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BikePie</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+  </head>
+  <body>
+
+
+    <div id="map"></div>
+
+    <script type="text/javascript" src="scriptADV.js"> </script>
+
+    <div id="input">
+      <form onsubmit=" getRoute(); return false;" action="" class="my-form">
+
+        <table>
+          <tr> <th  style="text-align: center;">  Would like to run              </th> </tr>
+          <tr> <td> <input type="number" id="distance" value="5" min="0" step="0.01" oninput="return allocMarkers()"> </td> </tr>
+          <!--<tr> <th  style="text-align: center;">  Resize by 10%   </th> </tr>-->
+          <!--<tr>-->
+            <!--<td> <input type="button" onclick="decDist()" value="-"></td>-->
+            <!--<td> <input type="button" onclick="incDist()" value="+"></td>-->
+          <!--</tr>-->
+
+
+          <!--<tr> <th  style="text-align: center;">  Rotēt       </th> </tr>-->
+          <!--<tr>-->
+            <!--<td> <input type="button" onclick="rotate()" value=""></td>-->
+          <!--</tr>-->
+
+          <!--<tr>-->
+            <!--<td> <input type="submit" value="AIZIET"> </td>-->
+          <!--</tr>-->
+
+          <tr><th></th></tr>
+
+
+        </table>
+
+      </form>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsfJrbmzQbcrvIFIZddGit-PQEnqELrNA&callback=initMap"
+    async defer></script>
+
+    <!--<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0-->
+      <!--<input type="range" id="a" value="50">100-->
+      <!--+<input type="number" id="b" value="50">-->
+      <!--=<output name="x" for="a b"></output>-->
+    <!--</form>-->
+
+
+  </body>
+</html>
