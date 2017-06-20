@@ -14,15 +14,12 @@
 
     <script type="text/javascript" src="scriptADV.js"> </script>
 
-    <div id="floating-panel"></div>
     <div id="input">
       <form onsubmit=" getRoute(); return false;" action="" class="my-form">
 
         <table>
           <tr> <th  style="text-align: center;">  Would like to run              </th> </tr>
-          <tr> <td> <input type="number" id="distance" value="5" min="0" step="0.5"> </td> </tr>
-          <tr> <th  style="text-align: center;">  Current Direction             </th> </tr>
-          <tr> <td> <output id="currDist" name ="x" for="0"></output> </td> </tr>
+          <tr> <td> <input type="number" id="distance" value="5" min="0" step="0.01" oninput="return allocMarkers()"> </td> </tr>
           <!--<tr> <th  style="text-align: center;">  Resize by 10%   </th> </tr>-->
           <!--<tr>-->
             <!--<td> <input type="button" onclick="decDist()" value="-"></td>-->
