@@ -8,12 +8,13 @@ var markers = [];
 
 
 function initMap() {
+    
 
     directionsDisplay = new google.maps.DirectionsRenderer({
         draggable: true,
-        map: map
+        map: map,
+        panel: document.getElementById('floating-panel')
     });
-
     // Create a map and center it on Ilukstes iela, Riga
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 56.953748, lng: 24.195647},
@@ -27,8 +28,9 @@ function initMap() {
           optimizeWaypoints: true
     };
 
+
     directionsDisplay.addListener('directions_changed', function() {
-        computeTotalDistance(directionsDisplay.getDirections());
+        document.getElementById("currDist").value = computeTotalDistance(directionsDisplay.getDirections()).toFixed(2) + " km";
     });
 
     map.addListener('click', function(event) {
@@ -44,12 +46,8 @@ function initMap() {
         gradi = 180; //make the 1st marker be the at point straight below the middle of the circle
         markers = [];
 
-        if(!request.waypoints){
-            request.waypoints = [];
-        } else if (request.waypoints.length > 0) {
-            request.waypoints = null;
+        request.waypoints = [];
 
-        }
 
         for(i; i < 4; i++)
         {
@@ -70,7 +68,7 @@ function initMap() {
                 location: markers[i].getPosition(),
                 stopover:true
               });
-              console.log(request.destination);
+              console.log("symbian");
             }
             else{
               if(!request.waypoints){
@@ -90,14 +88,7 @@ function initMap() {
         directionsService.route(request, function(response, status) {
           if (status == google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(response);
-
-            for(i = 0; i< response.routes[0].legs.length; i++)
-            {
-              distance = distance + response.routes[0].legs[i].distance.value;
-            }
-            //alert("Kopējais garums ir "+distance/1000+" km.");
-            document.getElementById("distt").innerHTML = distance/1000;
-            $('#distt').val(distance/1000);
+              document.getElementById("currDist").value = computeTotalDistance(response).toFixed(2) + " km";
           } else { alert("couldn't get directions:"+status);}
         });
 
@@ -176,8 +167,7 @@ function computeTotalDistance(result) {
     for (var i = 0; i < myroute.legs.length; i++) {
         total += myroute.legs[i].distance.value;
     }
-    total = total / 1000;
-    document.getElementById('total').innerHTML = total + ' km';
+    return total / 1000;
 }
 
 // document.getElementById('distance').value
