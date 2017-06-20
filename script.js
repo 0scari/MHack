@@ -25,7 +25,7 @@ function initMap() {
 
     directionsDisplay.addListener('directions_changed', function() {
         // Output the actual distance estimate after markers are moved
-        $("distanceOutput").value = computeTotalDistance(directionsDisplay.getDirections()).toFixed(2) + " km";
+        document.getElementById("distanceOutput").value = computeTotalDistance(directionsDisplay.getDirections()).toFixed(2) + " km";
     });
 
     map.addListener('click', function(event) {
@@ -69,7 +69,7 @@ function prepareDirections(request, directionsService, directionsDisplay) {
     directionsService.route(request, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(response);
-            $("distanceOutput").value = computeTotalDistance(response).toFixed(2) + " km";
+            document.getElementById("distanceOutput").value = computeTotalDistance(response).toFixed(2) + " km";
         } else { alert("couldn't get directions:"+status);}
     });
 }
