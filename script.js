@@ -16,10 +16,12 @@ function initMap() {
         center: {lat: 56.953748, lng: 24.195647}
     });
     directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById('directions-panel'));
 
     var request = {
-          travelMode: google.maps.TravelMode.WALKING,
-          optimizeWaypoints: true
+        travelMode: google.maps.TravelMode.WALKING,
+        optimizeWaypoints: true,
+        avoidHighways: true
     };
 
 
@@ -69,6 +71,7 @@ function prepareDirections(request, directionsService, directionsDisplay) {
     directionsService.route(request, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(response);
+            console.log(response);
             document.getElementById("distanceOutput").value = computeTotalDistance(response).toFixed(2) + " km";
         } else { alert("couldn't get directions:"+status);}
     });

@@ -25,17 +25,17 @@ html, body {
     z-index: 10;
 }
 
-#floating-panel {
-    z-index: 5;
-    background-color: #fff;
-    padding: 5px;
-    border: 1px solid #999;
-    text-align: center;
-    font-family: 'Roboto','sans-serif';
-    line-height: 30px;
-    padding-left: 10px;
-}
 
+#directions-panel {
+    z-index: 10;
+    /*float: right;*/
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    height: 80%;
+    width: 390px;
+    overflow: auto;
+}
 
 table, th, td {
       //  padding-left: 37px;
