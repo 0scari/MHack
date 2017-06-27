@@ -25,46 +25,66 @@ function initMap() {
     };
 
 
-    directionsDisplay.addListener('directions_changed', function() {
-        // Output the actual distance estimate after markers are moved
-        document.getElementById("distanceOutput").value = computeTotalDistance(directionsDisplay.getDirections()).toFixed(2) + " km";
-    });
+    // directionsDisplay.addListener('directions_changed', function() {
+    //     // Output the actual distance estimate after markers are moved
+    //     document.getElementById("distanceOutput").value = computeTotalDistance(directionsDisplay.getDirections()).toFixed(2) + " km";
+    // });
 
     map.addListener('click', function(event) {
         /* On click calculate the coordinates for i amount of waypoints, whose coordinates are aligned
          * in a circular pattern, and output requested directions based on them.
          */
-
-        var center = rhumbDestinationPoint(event.latLng.lat(), event.latLng.lng());
+        var distance = document.getElementById("distance").value;
+        distance = (distance / 8) * 1000;
 
         markers           = [];
         request.waypoints = [];
 
-        var bearing = 180;
-        var startAndFinishMarker  = prepareMarker(rhumbDestinationPoint(center.lat, center.lng, bearing));
-        request.origin      = startAndFinishMarker.getPosition();
-        request.destination = startAndFinishMarker.getPosition();
-        markers.push(startAndFinishMarker);
+        var start = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());
+        var spherical = google.maps.geometry.spherical;
 
-        var coords;
+        //markers.push(prepareMarker(moveNorth(start, distance, spherical)));
+        prepareMarker(getOriginOfR1(start, distance, spherical))
+        
 
-        for(var i = 1; i < 4; i++)
-        {
-            bearing += 90;
-            coords = rhumbDestinationPoint(center.lat, center.lng, bearing);
-
-            markers.push(prepareMarker(coords));
-            request.waypoints.push({
-                location: markers[i].getPosition(),
-                stopover:true
-            });
-        }
-
-        prepareDirections(request, directionsService, directionsDisplay);
+        //prepareDirections(request, directionsService, directionsDisplay);
 
     });
 }
 
+function moveNorth(latLng, distance, spherical) {
+    var north = spherical.computeOffset(latLng, distance , 0);
+    return {lat: north.lat(), lng: north.lng()};
+}
+
+function moveSouth(latLng, distance, spherical) {
+    var south = spherical.computeOffset(latLng, distance , 180);
+    return {lat: south.lat(), lng: south.lng()};
+}
+
+function moveEast(latLng, distance, spherical) {
+    var east = spherical.computeOffset(latLng, distance , 90);
+    return {lat: east.lat(), lng: east.lng()};
+}
+
+function moveWest(latLng, distance, spherical) {
+    var west = spherical.computeOffset(latLng, distance , -90);
+    return {lat: west.lat(), lng: west.lng()};
+}
+
+function getOriginOfR1(veryStart, distance, spherical) {
+
+    var north1 = moveNorth(veryStart,distance,spherical);
+    var north1LatLng = new google.maps.LatLng(north1.lat, north1.lng);
+
+    var west1 = moveWest(north1LatLng,distance,spherical);
+    var west1LatLng = new google.maps.LatLng(west1.lat, west1.lng);
+
+    var north2 = moveNorth(west1LatLng,distance,spherical);
+    var north2LatLng = new google.maps.LatLng(north2.lat, north2.lng);
+
+    return north2LatLng;
+}
 
 
 function prepareDirections(request, directionsService, directionsDisplay) {
@@ -78,58 +98,15 @@ function prepareDirections(request, directionsService, directionsDisplay) {
 }
 
 function prepareMarker (coords){
+
   marker = new google.maps.Marker({
       position: coords,
-      //map: map
+      map: map
   });
   return marker;
 }
 
-/**
- *      Given a start point, initial bearing, and distance, this will calculate the destination point
- *      and final bearing travelling along a (shortest distance) great circle arc.
- *
- *  Formula:
- *  φ2 = asin( sin φ1 ⋅ cos δ + cos φ1 ⋅ sin δ ⋅ cos θ )
- *  λ2 = λ1 + atan2( sin θ ⋅ sin δ ⋅ cos φ1, cos δ − sin φ1 ⋅ sin φ2 )
- *  where	φ is latitude, λ is longitude, θ is the bearing (clockwise from north),
- *  δ is the angular distance d/R; d being the distance travelled, R the earth’s radius
- *
- *  http://www.movable-type.co.uk/scripts/latlong.html                     (explanation)
- *  http://cdn.rawgit.com/chrisveness/geodesy/v1.1.1/latlon-spherical.js   (source)
- *
- * @param lat1
- * @param lng1
- * @param bearing
- * @returns {{lat: *, lng: *}}
- */
-function rhumbDestinationPoint(lat1, lng1, bearing = 0)
-{
-    var distance = document.getElementById("distance").value;
-    distance = distance/6.28*1000;
 
-    var radius = 6371000;
-    var δ = Number(distance) / radius; // angular distance in radians
-
-    var φ1 = toRadians(lat1), λ1 = toRadians(lng1);
-    var θ = toRadians(bearing);
-    var Δφ = δ * Math.cos(θ);
-    var φ2 = φ1 + Δφ;
-
-    // check for some daft bugger going past the pole, normalise latitude if so
-    if (Math.abs(φ2) > Math.PI/2) φ2 = φ2>0 ? Math.PI-φ2 : -Math.PI-φ2;
-    var Δψ = Math.log(Math.tan(φ2/2+Math.PI/4)/Math.tan(φ1/2+Math.PI/4));
-
-    var q = Math.abs(Δψ) > 10e-12 ? Δφ / Δψ : Math.cos(φ1);
-
-    var Δλ = δ*Math.sin(θ)/q;
-    var λ2 = λ1 + Δλ;
-
-    φ2 = toDegrees(φ2);
-    λ2 = (toDegrees(λ2)+540) % 360 - 180;
-
-    return {lat: φ2, lng: λ2};
-}
 
 function toRadians(number)
 {
