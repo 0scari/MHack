@@ -40,50 +40,51 @@ function initMap() {
         markers           = [];
         request.waypoints = [];
 
-        var start = new google.maps.LatLng(event.latLng.lat(), event.latLng.lng());
+        var start = {lat: event.latLng.lat(), lng: event.latLng.lng()};
         var spherical = google.maps.geometry.spherical;
 
-        //markers.push(prepareMarker(moveNorth(start, distance, spherical)));
-        prepareMarker(getOriginOfR1(start, distance, spherical))
-        
+        // markers.push(prepareMarker(moveNorth(start, distance, spherical)));
+        // prepareMarker(getOriginOfR1(start, distance, spherical))
+
+        var myCallback = function (latLng, degrees) {
+            latLng = new google.maps.LatLng(latLng.lat, latLng.lng);
+            var west = spherical.computeOffset(latLng, distance , degrees);
+            return {lat: west.lat(), lng: west.lng()};
+        }
+
+        prepareMarker(getOriginOfR1(start, myCallback));
+
+
 
         //prepareDirections(request, directionsService, directionsDisplay);
 
     });
 }
 
-function moveNorth(latLng, distance, spherical) {
-    var north = spherical.computeOffset(latLng, distance , 0);
-    return {lat: north.lat(), lng: north.lng()};
+function moveNorth(latLng, myCallback) {
+    return myCallback(latLng, 0);
 }
 
-function moveSouth(latLng, distance, spherical) {
-    var south = spherical.computeOffset(latLng, distance , 180);
-    return {lat: south.lat(), lng: south.lng()};
+function moveSouth(latLng, myCallback) {
+    return myCallback(latLng, 180);
 }
 
-function moveEast(latLng, distance, spherical) {
-    var east = spherical.computeOffset(latLng, distance , 90);
-    return {lat: east.lat(), lng: east.lng()};
+function moveEast(latLng, myCallback) {
+    return myCallback(latLng, 90);
 }
 
-function moveWest(latLng, distance, spherical) {
-    var west = spherical.computeOffset(latLng, distance , -90);
-    return {lat: west.lat(), lng: west.lng()};
+function moveWest(latLng, myCallback) {
+    return myCallback(latLng, -90);
 }
 
-function getOriginOfR1(veryStart, distance, spherical) {
+function getOriginOfR1(veryStart, myCallback) {
+    var north1  = moveNorth(veryStart, myCallback);
+    var west1   = moveWest(north1, myCallback);
+    return moveNorth(west1, myCallback);
+}
 
-    var north1 = moveNorth(veryStart,distance,spherical);
-    var north1LatLng = new google.maps.LatLng(north1.lat, north1.lng);
+function getDestinationOfR1() {
 
-    var west1 = moveWest(north1LatLng,distance,spherical);
-    var west1LatLng = new google.maps.LatLng(west1.lat, west1.lng);
-
-    var north2 = moveNorth(west1LatLng,distance,spherical);
-    var north2LatLng = new google.maps.LatLng(north2.lat, north2.lng);
-
-    return north2LatLng;
 }
 
 
