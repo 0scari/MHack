@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="421ff109-6e82-4717-8c85-4ae9ebcc2194" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script.js" afterPath="$PROJECT_DIR$/script.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +30,8 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="65" column="70" lean-forward="false" selection-start-line="65" selection-start-column="70" selection-end-line="65" selection-end-column="70" />
+            <state relative-caret-position="879">
+              <caret line="216" column="1" lean-forward="false" selection-start-line="216" selection-start-column="1" selection-end-line="216" selection-end-column="1" />
               <folding>
                 <element signature="e#0#42#0" expanded="false" />
                 <element signature="n#!!block;n#moveNorth#0" expanded="false" />
@@ -45,11 +44,11 @@
                 <element signature="n#!!block;n#calcR2coords#0" expanded="false" />
                 <element signature="n#!!block;n#prepareMarker#0" expanded="false" />
                 <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
-                <element signature="e#8598#8656#0" expanded="false" />
+                <element signature="e#8921#8979#0" expanded="false" />
                 <element signature="n#!!block;n#toRadians#0" expanded="false" />
                 <element signature="n#!!block;n#toDegrees#0" expanded="false" />
                 <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
-                <element signature="e#9026#9082#0" expanded="false" />
+                <element signature="e#9282#9338#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -257,12 +256,12 @@
       <workItem from="1497966610240" duration="469000" />
       <workItem from="1498495453546" duration="4582000" />
       <workItem from="1498754623372" duration="6344000" />
-      <workItem from="1498893927680" duration="12976000" />
+      <workItem from="1498893927680" duration="14938000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42741000" />
+    <option name="totallyTimeSpent" value="44703000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -317,11 +316,11 @@
             <element signature="n#!!block;n#calcR2coords#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarker#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
-            <element signature="e#8598#8656#0" expanded="false" />
+            <element signature="e#8921#8979#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
             <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
-            <element signature="e#9026#9082#0" expanded="false" />
+            <element signature="e#9282#9338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -362,11 +361,11 @@
             <element signature="n#!!block;n#calcR2coords#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarker#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
-            <element signature="e#8598#8656#0" expanded="false" />
+            <element signature="e#8921#8979#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
             <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
-            <element signature="e#9026#9082#0" expanded="false" />
+            <element signature="e#9282#9338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -414,11 +413,11 @@
             <element signature="n#!!block;n#calcR2coords#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarker#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
-            <element signature="e#8598#8656#0" expanded="false" />
+            <element signature="e#8921#8979#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
             <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
-            <element signature="e#9026#9082#0" expanded="false" />
+            <element signature="e#9282#9338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -450,11 +449,11 @@
             <element signature="n#!!block;n#calcR2coords#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarker#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
-            <element signature="e#8598#8656#0" expanded="false" />
+            <element signature="e#8921#8979#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
             <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
-            <element signature="e#9026#9082#0" expanded="false" />
+            <element signature="e#9282#9338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -494,11 +493,11 @@
             <element signature="n#!!block;n#calcR2coords#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarker#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
-            <element signature="e#8598#8656#0" expanded="false" />
+            <element signature="e#8921#8979#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
             <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
-            <element signature="e#9026#9082#0" expanded="false" />
+            <element signature="e#9282#9338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -546,11 +545,11 @@
             <element signature="n#!!block;n#calcR2coords#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarker#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
-            <element signature="e#8598#8656#0" expanded="false" />
+            <element signature="e#8921#8979#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
             <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
-            <element signature="e#9026#9082#0" expanded="false" />
+            <element signature="e#9282#9338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -582,11 +581,11 @@
             <element signature="n#!!block;n#calcR2coords#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarker#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
-            <element signature="e#8598#8656#0" expanded="false" />
+            <element signature="e#8921#8979#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
             <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
-            <element signature="e#9026#9082#0" expanded="false" />
+            <element signature="e#9282#9338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -637,11 +636,11 @@
             <element signature="n#!!block;n#calcR2coords#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarker#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
-            <element signature="e#8598#8656#0" expanded="false" />
+            <element signature="e#8921#8979#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
             <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
-            <element signature="e#9026#9082#0" expanded="false" />
+            <element signature="e#9282#9338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -681,11 +680,11 @@
             <element signature="n#!!block;n#calcR2coords#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarker#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
-            <element signature="e#8598#8656#0" expanded="false" />
+            <element signature="e#8921#8979#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
             <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
-            <element signature="e#9026#9082#0" expanded="false" />
+            <element signature="e#9282#9338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -717,11 +716,11 @@
             <element signature="n#!!block;n#calcR2coords#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarker#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
-            <element signature="e#8598#8656#0" expanded="false" />
+            <element signature="e#8921#8979#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
             <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
-            <element signature="e#9026#9082#0" expanded="false" />
+            <element signature="e#9282#9338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -761,11 +760,11 @@
             <element signature="n#!!block;n#calcR2coords#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarker#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
-            <element signature="e#8598#8656#0" expanded="false" />
+            <element signature="e#8921#8979#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
             <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
-            <element signature="e#9026#9082#0" expanded="false" />
+            <element signature="e#9282#9338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -813,11 +812,11 @@
             <element signature="n#!!block;n#calcR2coords#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarker#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
-            <element signature="e#8598#8656#0" expanded="false" />
+            <element signature="e#8921#8979#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
             <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
-            <element signature="e#9026#9082#0" expanded="false" />
+            <element signature="e#9282#9338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -849,11 +848,11 @@
             <element signature="n#!!block;n#calcR2coords#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarker#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
-            <element signature="e#8598#8656#0" expanded="false" />
+            <element signature="e#8921#8979#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
             <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
-            <element signature="e#9026#9082#0" expanded="false" />
+            <element signature="e#9282#9338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -906,8 +905,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="65" column="70" lean-forward="false" selection-start-line="65" selection-start-column="70" selection-end-line="65" selection-end-column="70" />
+        <state relative-caret-position="879">
+          <caret line="216" column="1" lean-forward="false" selection-start-line="216" selection-start-column="1" selection-end-line="216" selection-end-column="1" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
             <element signature="n#!!block;n#moveNorth#0" expanded="false" />
@@ -920,11 +919,11 @@
             <element signature="n#!!block;n#calcR2coords#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarker#0" expanded="false" />
             <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
-            <element signature="e#8598#8656#0" expanded="false" />
+            <element signature="e#8921#8979#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
             <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
-            <element signature="e#9026#9082#0" expanded="false" />
+            <element signature="e#9282#9338#0" expanded="false" />
           </folding>
         </state>
       </provider>

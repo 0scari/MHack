@@ -10,18 +10,20 @@ var markers = [];
 function initMap() {
 
     var directionsService = new google.maps.DirectionsService;
-    var directionsDisplay = new google.maps.DirectionsRenderer({draggable: true});
+    var directionsDisplay1 = new google.maps.DirectionsRenderer({draggable: true});
+    var directionsDisplay2 = new google.maps.DirectionsRenderer({draggable: true});
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 14,
         center: {lat: 56.953748, lng: 24.195647}
     });
-    directionsDisplay.setMap(map);
-    directionsDisplay.setPanel(document.getElementById('directions-panel'));
+    directionsDisplay1.setMap(map);
+    directionsDisplay2.setMap(map);
+    directionsDisplay1.setPanel(document.getElementById('directions-panel'));
 
 
-    // directionsDisplay.addListener('directions_changed', function() {
+    // directionsDisplay1.addListener('directions_changed', function() {
     //     // Output the actual distance estimate after markers are moved
-    //     document.getElementById("distanceOutput").value = computeTotalDistance(directionsDisplay.getDirections()).toFixed(2) + " km";
+    //     document.getElementById("distanceOutput").value = computeTotalDistance(directionsDisplay1.getDirections()).toFixed(2) + " km";
     // });
 
     map.addListener('click', function(event) {
@@ -56,7 +58,7 @@ function initMap() {
                 return new Promise(function(resolve, reject) {
                     directionsService.route(request, function(response, status) {
                         if (status == google.maps.DirectionsStatus.OK) {
-                            //directionsDisplay.setDirections(response);
+                            //directionsDisplay1.setDirections(response);
                             return resolve(response)
                         } else { return reject("couldn't get directions:"+status);}
                     });
@@ -64,8 +66,13 @@ function initMap() {
             }
 
             Promise.all([requestAsync(request1), requestAsync(request2)])
-                .then(function(allData) {
-                    console.log(allData);
+                .then(function(responses) {
+                     directionsDisplay1.setDirections(responses[0]);
+                     directionsDisplay2.setDirections(responses[1]);
+                     console.log(responses[0]);
+                     console.log(responses[1]);
+
+
                 });
 
         };
@@ -79,7 +86,7 @@ function initMap() {
         getDirections(i1Markers, i2Markers);
 
 
-        //prepareDirections(request, directionsService, directionsDisplay);
+        //prepareDirections(request, directionsService, directionsDisplay1);
 
     });
 }
@@ -207,10 +214,6 @@ function prepareMarkers (itinerary) {
         markers.push(prepareMarker(itinerary[i]));
     }
     return markers;
-}
-
-function getRoutes(directionsResponse1, directionsResponse2) {
-
 }
 
 function toRadians(number) {
