@@ -18,12 +18,6 @@ function initMap() {
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById('directions-panel'));
 
-    var request = {
-        travelMode: google.maps.TravelMode.WALKING,
-        //optimizeWaypoints: true,
-        avoidHighways: true
-    };
-
 
     // directionsDisplay.addListener('directions_changed', function() {
     //     // Output the actual distance estimate after markers are moved
@@ -37,9 +31,9 @@ function initMap() {
         var distance = document.getElementById("distance").value;
         distance = (distance / 8) * 1000;
 
+        var directionsResponse1 = null;
         var i1Markers       = [];
         var i2Markers       = [];
-        request.waypoints   = [];
 
         var start = {lat: event.latLng.lat(), lng: event.latLng.lng()};
         var spherical = google.maps.geometry.spherical;
@@ -51,18 +45,30 @@ function initMap() {
             latLng = new google.maps.LatLng(latLng.lat, latLng.lng);
             var west = spherical.computeOffset(latLng, distance , degrees);
             return {lat: west.lat(), lng: west.lng()};
-        }
-        var getDirections = function (markers, request) {
+        };
+        var getDirections = function (markers1, markers2) {
 
-            request = fillStopovers(markers, request);
+            var request1 = fillStopovers(markers1);
+            var request2 = fillStopovers(markers2);
 
-            directionsService.route(request, function(response, status) {
-                if (status == google.maps.DirectionsStatus.OK) {
-                    directionsDisplay.setDirections(response);
-                    return response;
-                } else { alert("couldn't get directions:"+status);}
-            });
-        }
+            function requestAsync(request) {
+
+                return new Promise(function(resolve, reject) {
+                    directionsService.route(request, function(response, status) {
+                        if (status == google.maps.DirectionsStatus.OK) {
+                            //directionsDisplay.setDirections(response);
+                            return resolve(response)
+                        } else { return reject("couldn't get directions:"+status);}
+                    });
+                });
+            }
+
+            Promise.all([requestAsync(request1), requestAsync(request2)])
+                .then(function(allData) {
+                    console.log(allData);
+                });
+
+        };
 
         var itinerary1 = calcR1coords(start, myCallback);
         var itinerary2 = calcR2coords(start, myCallback);
@@ -70,8 +76,7 @@ function initMap() {
         i1Markers = prepareMarkers(itinerary1);
         i2Markers = prepareMarkers(itinerary2);
 
-        var directions = getDirections(i2Markers, request);
-
+        getDirections(i1Markers, i2Markers);
 
 
         //prepareDirections(request, directionsService, directionsDisplay);
@@ -79,7 +84,14 @@ function initMap() {
     });
 }
 
-function fillStopovers(markers, request) {
+function fillStopovers(markers) {
+    var request = {
+        travelMode: google.maps.TravelMode.WALKING,
+        //optimizeWaypoints: true,
+        avoidHighways: true
+    };
+
+    request.waypoints   = [];
     request.origin      = markers[0].getPosition();
     request.destination = markers[markers.length -1].getPosition();
 
@@ -92,23 +104,18 @@ function fillStopovers(markers, request) {
 
     return request;
 }
-
 function moveNorth(latLng, myCallback) {
     return myCallback(latLng, 0);
 }
-
 function moveSouth(latLng, myCallback) {
     return myCallback(latLng, 180);
 }
-
 function moveEast(latLng, myCallback) {
     return myCallback(latLng, 90);
 }
-
 function moveWest(latLng, myCallback) {
     return myCallback(latLng, -90);
 }
-
 function getOriginOfR1(veryStart, callback) {
     var north1  = moveNorth(veryStart, callback);
     var west1   = moveWest(north1, callback);
@@ -119,7 +126,6 @@ function getOriginOfR2(veryStart, callback) {
     var east2 = moveEast(east1, callback);
     return moveNorth(east2, callback);
 }
-
 function calcR1coords(start, callback) {
     var itinerary = [];
     itinerary.push(getOriginOfR1(start, callback));
@@ -203,6 +209,9 @@ function prepareMarkers (itinerary) {
     return markers;
 }
 
+function getRoutes(directionsResponse1, directionsResponse2) {
+
+}
 
 function toRadians(number) {
     return number * Math.PI / 180;
