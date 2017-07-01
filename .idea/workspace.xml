@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="421ff109-6e82-4717-8c85-4ae9ebcc2194" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script.js" afterPath="$PROJECT_DIR$/script.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,13 +31,29 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="85" column="25" lean-forward="false" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+            <state relative-caret-position="414">
+              <caret line="70" column="47" lean-forward="true" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
               <folding>
                 <element signature="e#0#42#0" expanded="false" />
+                <element signature="e#418#492#0" expanded="false" />
+                <element signature="e#1831#2042#0" expanded="false" />
+                <element signature="e#2099#2490#0" expanded="false" />
+                <element signature="n#!!block;n#fillStopovers#0" expanded="false" />
+                <element signature="e#3070#3195#0" expanded="false" />
+                <element signature="e#3103#3188#0" expanded="false" />
+                <element signature="n#!!block;n#moveNorth#0" expanded="false" />
+                <element signature="n#!!block;n#moveSouth#0" expanded="false" />
+                <element signature="n#!!block;n#moveEast#0" expanded="false" />
+                <element signature="n#!!block;n#moveWest#0" expanded="false" />
                 <element signature="n#!!block;n#prepareDirections#0" expanded="false" />
+                <element signature="e#7578#7905#0" expanded="false" />
+                <element signature="e#7635#7849#0" expanded="false" />
+                <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
+                <element signature="e#8151#8209#0" expanded="false" />
                 <element signature="n#!!block;n#toRadians#0" expanded="false" />
                 <element signature="n#!!block;n#toDegrees#0" expanded="false" />
+                <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
+                <element signature="e#8513#8569#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -68,10 +83,12 @@
       <find>currDist</find>
       <find>right-panel</find>
       <find>latlng</find>
+      <find>itinerary</find>
     </findStrings>
     <replaceStrings>
       <replace>distanceOutput</replace>
       <replace>directions-panel</replace>
+      <replace>itinerary.length</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -241,27 +258,28 @@
       <workItem from="1497892514196" duration="2504000" />
       <workItem from="1497966610240" duration="469000" />
       <workItem from="1498495453546" duration="4582000" />
-      <workItem from="1498754623372" duration="3152000" />
+      <workItem from="1498754623372" duration="6344000" />
+      <workItem from="1498893927680" duration="4727000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26573000" />
+    <option name="totallyTimeSpent" value="34492000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15508886" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15751211" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -279,7 +297,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -310,9 +328,25 @@
           <caret line="21" column="50" lean-forward="false" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
+            <element signature="e#418#492#0" expanded="false" />
+            <element signature="e#1831#2042#0" expanded="false" />
+            <element signature="e#2099#2490#0" expanded="false" />
+            <element signature="n#!!block;n#fillStopovers#0" expanded="false" />
+            <element signature="e#3070#3195#0" expanded="false" />
+            <element signature="e#3103#3188#0" expanded="false" />
+            <element signature="n#!!block;n#moveNorth#0" expanded="false" />
+            <element signature="n#!!block;n#moveSouth#0" expanded="false" />
+            <element signature="n#!!block;n#moveEast#0" expanded="false" />
+            <element signature="n#!!block;n#moveWest#0" expanded="false" />
             <element signature="n#!!block;n#prepareDirections#0" expanded="false" />
+            <element signature="e#7578#7905#0" expanded="false" />
+            <element signature="e#7635#7849#0" expanded="false" />
+            <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
+            <element signature="e#8151#8209#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
+            <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
+            <element signature="e#8513#8569#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -343,9 +377,25 @@
           <caret line="21" column="50" lean-forward="false" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
+            <element signature="e#418#492#0" expanded="false" />
+            <element signature="e#1831#2042#0" expanded="false" />
+            <element signature="e#2099#2490#0" expanded="false" />
+            <element signature="n#!!block;n#fillStopovers#0" expanded="false" />
+            <element signature="e#3070#3195#0" expanded="false" />
+            <element signature="e#3103#3188#0" expanded="false" />
+            <element signature="n#!!block;n#moveNorth#0" expanded="false" />
+            <element signature="n#!!block;n#moveSouth#0" expanded="false" />
+            <element signature="n#!!block;n#moveEast#0" expanded="false" />
+            <element signature="n#!!block;n#moveWest#0" expanded="false" />
             <element signature="n#!!block;n#prepareDirections#0" expanded="false" />
+            <element signature="e#7578#7905#0" expanded="false" />
+            <element signature="e#7635#7849#0" expanded="false" />
+            <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
+            <element signature="e#8151#8209#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
+            <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
+            <element signature="e#8513#8569#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -383,9 +433,25 @@
           <caret line="71" column="53" lean-forward="false" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
+            <element signature="e#418#492#0" expanded="false" />
+            <element signature="e#1831#2042#0" expanded="false" />
+            <element signature="e#2099#2490#0" expanded="false" />
+            <element signature="n#!!block;n#fillStopovers#0" expanded="false" />
+            <element signature="e#3070#3195#0" expanded="false" />
+            <element signature="e#3103#3188#0" expanded="false" />
+            <element signature="n#!!block;n#moveNorth#0" expanded="false" />
+            <element signature="n#!!block;n#moveSouth#0" expanded="false" />
+            <element signature="n#!!block;n#moveEast#0" expanded="false" />
+            <element signature="n#!!block;n#moveWest#0" expanded="false" />
             <element signature="n#!!block;n#prepareDirections#0" expanded="false" />
+            <element signature="e#7578#7905#0" expanded="false" />
+            <element signature="e#7635#7849#0" expanded="false" />
+            <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
+            <element signature="e#8151#8209#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
+            <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
+            <element signature="e#8513#8569#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -407,9 +473,25 @@
           <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
+            <element signature="e#418#492#0" expanded="false" />
+            <element signature="e#1831#2042#0" expanded="false" />
+            <element signature="e#2099#2490#0" expanded="false" />
+            <element signature="n#!!block;n#fillStopovers#0" expanded="false" />
+            <element signature="e#3070#3195#0" expanded="false" />
+            <element signature="e#3103#3188#0" expanded="false" />
+            <element signature="n#!!block;n#moveNorth#0" expanded="false" />
+            <element signature="n#!!block;n#moveSouth#0" expanded="false" />
+            <element signature="n#!!block;n#moveEast#0" expanded="false" />
+            <element signature="n#!!block;n#moveWest#0" expanded="false" />
             <element signature="n#!!block;n#prepareDirections#0" expanded="false" />
+            <element signature="e#7578#7905#0" expanded="false" />
+            <element signature="e#7635#7849#0" expanded="false" />
+            <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
+            <element signature="e#8151#8209#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
+            <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
+            <element signature="e#8513#8569#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -439,9 +521,25 @@
           <caret line="26" column="33" lean-forward="true" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
+            <element signature="e#418#492#0" expanded="false" />
+            <element signature="e#1831#2042#0" expanded="false" />
+            <element signature="e#2099#2490#0" expanded="false" />
+            <element signature="n#!!block;n#fillStopovers#0" expanded="false" />
+            <element signature="e#3070#3195#0" expanded="false" />
+            <element signature="e#3103#3188#0" expanded="false" />
+            <element signature="n#!!block;n#moveNorth#0" expanded="false" />
+            <element signature="n#!!block;n#moveSouth#0" expanded="false" />
+            <element signature="n#!!block;n#moveEast#0" expanded="false" />
+            <element signature="n#!!block;n#moveWest#0" expanded="false" />
             <element signature="n#!!block;n#prepareDirections#0" expanded="false" />
+            <element signature="e#7578#7905#0" expanded="false" />
+            <element signature="e#7635#7849#0" expanded="false" />
+            <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
+            <element signature="e#8151#8209#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
+            <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
+            <element signature="e#8513#8569#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -479,9 +577,25 @@
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
+            <element signature="e#418#492#0" expanded="false" />
+            <element signature="e#1831#2042#0" expanded="false" />
+            <element signature="e#2099#2490#0" expanded="false" />
+            <element signature="n#!!block;n#fillStopovers#0" expanded="false" />
+            <element signature="e#3070#3195#0" expanded="false" />
+            <element signature="e#3103#3188#0" expanded="false" />
+            <element signature="n#!!block;n#moveNorth#0" expanded="false" />
+            <element signature="n#!!block;n#moveSouth#0" expanded="false" />
+            <element signature="n#!!block;n#moveEast#0" expanded="false" />
+            <element signature="n#!!block;n#moveWest#0" expanded="false" />
             <element signature="n#!!block;n#prepareDirections#0" expanded="false" />
+            <element signature="e#7578#7905#0" expanded="false" />
+            <element signature="e#7635#7849#0" expanded="false" />
+            <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
+            <element signature="e#8151#8209#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
+            <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
+            <element signature="e#8513#8569#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -503,9 +617,25 @@
           <caret line="26" column="33" lean-forward="true" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
+            <element signature="e#418#492#0" expanded="false" />
+            <element signature="e#1831#2042#0" expanded="false" />
+            <element signature="e#2099#2490#0" expanded="false" />
+            <element signature="n#!!block;n#fillStopovers#0" expanded="false" />
+            <element signature="e#3070#3195#0" expanded="false" />
+            <element signature="e#3103#3188#0" expanded="false" />
+            <element signature="n#!!block;n#moveNorth#0" expanded="false" />
+            <element signature="n#!!block;n#moveSouth#0" expanded="false" />
+            <element signature="n#!!block;n#moveEast#0" expanded="false" />
+            <element signature="n#!!block;n#moveWest#0" expanded="false" />
             <element signature="n#!!block;n#prepareDirections#0" expanded="false" />
+            <element signature="e#7578#7905#0" expanded="false" />
+            <element signature="e#7635#7849#0" expanded="false" />
+            <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
+            <element signature="e#8151#8209#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
+            <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
+            <element signature="e#8513#8569#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -546,9 +676,25 @@
           <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
+            <element signature="e#418#492#0" expanded="false" />
+            <element signature="e#1831#2042#0" expanded="false" />
+            <element signature="e#2099#2490#0" expanded="false" />
+            <element signature="n#!!block;n#fillStopovers#0" expanded="false" />
+            <element signature="e#3070#3195#0" expanded="false" />
+            <element signature="e#3103#3188#0" expanded="false" />
+            <element signature="n#!!block;n#moveNorth#0" expanded="false" />
+            <element signature="n#!!block;n#moveSouth#0" expanded="false" />
+            <element signature="n#!!block;n#moveEast#0" expanded="false" />
+            <element signature="n#!!block;n#moveWest#0" expanded="false" />
             <element signature="n#!!block;n#prepareDirections#0" expanded="false" />
+            <element signature="e#7578#7905#0" expanded="false" />
+            <element signature="e#7635#7849#0" expanded="false" />
+            <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
+            <element signature="e#8151#8209#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
+            <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
+            <element signature="e#8513#8569#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -578,9 +724,25 @@
           <caret line="71" column="53" lean-forward="false" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
+            <element signature="e#418#492#0" expanded="false" />
+            <element signature="e#1831#2042#0" expanded="false" />
+            <element signature="e#2099#2490#0" expanded="false" />
+            <element signature="n#!!block;n#fillStopovers#0" expanded="false" />
+            <element signature="e#3070#3195#0" expanded="false" />
+            <element signature="e#3103#3188#0" expanded="false" />
+            <element signature="n#!!block;n#moveNorth#0" expanded="false" />
+            <element signature="n#!!block;n#moveSouth#0" expanded="false" />
+            <element signature="n#!!block;n#moveEast#0" expanded="false" />
+            <element signature="n#!!block;n#moveWest#0" expanded="false" />
             <element signature="n#!!block;n#prepareDirections#0" expanded="false" />
+            <element signature="e#7578#7905#0" expanded="false" />
+            <element signature="e#7635#7849#0" expanded="false" />
+            <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
+            <element signature="e#8151#8209#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
+            <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
+            <element signature="e#8513#8569#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -602,9 +764,25 @@
           <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
+            <element signature="e#418#492#0" expanded="false" />
+            <element signature="e#1831#2042#0" expanded="false" />
+            <element signature="e#2099#2490#0" expanded="false" />
+            <element signature="n#!!block;n#fillStopovers#0" expanded="false" />
+            <element signature="e#3070#3195#0" expanded="false" />
+            <element signature="e#3103#3188#0" expanded="false" />
+            <element signature="n#!!block;n#moveNorth#0" expanded="false" />
+            <element signature="n#!!block;n#moveSouth#0" expanded="false" />
+            <element signature="n#!!block;n#moveEast#0" expanded="false" />
+            <element signature="n#!!block;n#moveWest#0" expanded="false" />
             <element signature="n#!!block;n#prepareDirections#0" expanded="false" />
+            <element signature="e#7578#7905#0" expanded="false" />
+            <element signature="e#7635#7849#0" expanded="false" />
+            <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
+            <element signature="e#8151#8209#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
+            <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
+            <element signature="e#8513#8569#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -634,9 +812,25 @@
           <caret line="26" column="33" lean-forward="true" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
+            <element signature="e#418#492#0" expanded="false" />
+            <element signature="e#1831#2042#0" expanded="false" />
+            <element signature="e#2099#2490#0" expanded="false" />
+            <element signature="n#!!block;n#fillStopovers#0" expanded="false" />
+            <element signature="e#3070#3195#0" expanded="false" />
+            <element signature="e#3103#3188#0" expanded="false" />
+            <element signature="n#!!block;n#moveNorth#0" expanded="false" />
+            <element signature="n#!!block;n#moveSouth#0" expanded="false" />
+            <element signature="n#!!block;n#moveEast#0" expanded="false" />
+            <element signature="n#!!block;n#moveWest#0" expanded="false" />
             <element signature="n#!!block;n#prepareDirections#0" expanded="false" />
+            <element signature="e#7578#7905#0" expanded="false" />
+            <element signature="e#7635#7849#0" expanded="false" />
+            <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
+            <element signature="e#8151#8209#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
+            <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
+            <element signature="e#8513#8569#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -674,9 +868,25 @@
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
+            <element signature="e#418#492#0" expanded="false" />
+            <element signature="e#1831#2042#0" expanded="false" />
+            <element signature="e#2099#2490#0" expanded="false" />
+            <element signature="n#!!block;n#fillStopovers#0" expanded="false" />
+            <element signature="e#3070#3195#0" expanded="false" />
+            <element signature="e#3103#3188#0" expanded="false" />
+            <element signature="n#!!block;n#moveNorth#0" expanded="false" />
+            <element signature="n#!!block;n#moveSouth#0" expanded="false" />
+            <element signature="n#!!block;n#moveEast#0" expanded="false" />
+            <element signature="n#!!block;n#moveWest#0" expanded="false" />
             <element signature="n#!!block;n#prepareDirections#0" expanded="false" />
+            <element signature="e#7578#7905#0" expanded="false" />
+            <element signature="e#7635#7849#0" expanded="false" />
+            <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
+            <element signature="e#8151#8209#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
+            <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
+            <element signature="e#8513#8569#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -698,9 +908,25 @@
           <caret line="26" column="33" lean-forward="true" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
+            <element signature="e#418#492#0" expanded="false" />
+            <element signature="e#1831#2042#0" expanded="false" />
+            <element signature="e#2099#2490#0" expanded="false" />
+            <element signature="n#!!block;n#fillStopovers#0" expanded="false" />
+            <element signature="e#3070#3195#0" expanded="false" />
+            <element signature="e#3103#3188#0" expanded="false" />
+            <element signature="n#!!block;n#moveNorth#0" expanded="false" />
+            <element signature="n#!!block;n#moveSouth#0" expanded="false" />
+            <element signature="n#!!block;n#moveEast#0" expanded="false" />
+            <element signature="n#!!block;n#moveWest#0" expanded="false" />
             <element signature="n#!!block;n#prepareDirections#0" expanded="false" />
+            <element signature="e#7578#7905#0" expanded="false" />
+            <element signature="e#7635#7849#0" expanded="false" />
+            <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
+            <element signature="e#8151#8209#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
+            <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
+            <element signature="e#8513#8569#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -737,13 +963,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="85" column="25" lean-forward="false" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+        <state relative-caret-position="414">
+          <caret line="70" column="47" lean-forward="true" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
+            <element signature="e#418#492#0" expanded="false" />
+            <element signature="e#1831#2042#0" expanded="false" />
+            <element signature="e#2099#2490#0" expanded="false" />
+            <element signature="n#!!block;n#fillStopovers#0" expanded="false" />
+            <element signature="e#3070#3195#0" expanded="false" />
+            <element signature="e#3103#3188#0" expanded="false" />
+            <element signature="n#!!block;n#moveNorth#0" expanded="false" />
+            <element signature="n#!!block;n#moveSouth#0" expanded="false" />
+            <element signature="n#!!block;n#moveEast#0" expanded="false" />
+            <element signature="n#!!block;n#moveWest#0" expanded="false" />
             <element signature="n#!!block;n#prepareDirections#0" expanded="false" />
+            <element signature="e#7578#7905#0" expanded="false" />
+            <element signature="e#7635#7849#0" expanded="false" />
+            <element signature="n#!!block;n#prepareMarkers#0" expanded="false" />
+            <element signature="e#8151#8209#0" expanded="false" />
             <element signature="n#!!block;n#toRadians#0" expanded="false" />
             <element signature="n#!!block;n#toDegrees#0" expanded="false" />
+            <element signature="n#!!block;n#computeTotalDistance#0" expanded="false" />
+            <element signature="e#8513#8569#0" expanded="false" />
           </folding>
         </state>
       </provider>

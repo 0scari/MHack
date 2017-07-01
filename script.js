@@ -1,7 +1,7 @@
 /**
  * Created by oscar on 17/06/2017.
  */
-
+// document.getElementById("distanceOutput").value = computeTotalDistance(response).toFixed(2) + " km";
 var map;
 var marker;
 var markers = [];
@@ -20,7 +20,7 @@ function initMap() {
 
     var request = {
         travelMode: google.maps.TravelMode.WALKING,
-        optimizeWaypoints: true,
+        //optimizeWaypoints: true,
         avoidHighways: true
     };
 
@@ -37,8 +37,9 @@ function initMap() {
         var distance = document.getElementById("distance").value;
         distance = (distance / 8) * 1000;
 
-        markers           = [];
-        request.waypoints = [];
+        var i1Markers       = [];
+        var i2Markers       = [];
+        request.waypoints   = [];
 
         var start = {lat: event.latLng.lat(), lng: event.latLng.lng()};
         var spherical = google.maps.geometry.spherical;
@@ -51,14 +52,45 @@ function initMap() {
             var west = spherical.computeOffset(latLng, distance , degrees);
             return {lat: west.lat(), lng: west.lng()};
         }
+        var getDirections = function (markers, request) {
 
-        prepareMarker(getOriginOfR1(start, myCallback));
+            request = fillStopovers(markers, request);
+
+            directionsService.route(request, function(response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                    return response;
+                } else { alert("couldn't get directions:"+status);}
+            });
+        }
+
+        var itinerary1 = calcR1coords(start, myCallback);
+        var itinerary2 = calcR2coords(start, myCallback);
+
+        i1Markers = prepareMarkers(itinerary1);
+        i2Markers = prepareMarkers(itinerary2);
+
+        var directions = getDirections(i2Markers, request);
 
 
 
         //prepareDirections(request, directionsService, directionsDisplay);
 
     });
+}
+
+function fillStopovers(markers, request) {
+    request.origin      = markers[0].getPosition();
+    request.destination = markers[markers.length -1].getPosition();
+
+    for (var i = 1; i < markers.length - 1; i++) {
+        request.waypoints.push({
+            location: markers[i].getPosition(),
+            stopover:true
+        })
+    }
+
+    return request;
 }
 
 function moveNorth(latLng, myCallback) {
@@ -77,13 +109,71 @@ function moveWest(latLng, myCallback) {
     return myCallback(latLng, -90);
 }
 
-function getOriginOfR1(veryStart, myCallback) {
-    var north1  = moveNorth(veryStart, myCallback);
-    var west1   = moveWest(north1, myCallback);
-    return moveNorth(west1, myCallback);
+function getOriginOfR1(veryStart, callback) {
+    var north1  = moveNorth(veryStart, callback);
+    var west1   = moveWest(north1, callback);
+    return moveNorth(west1, callback);
+}
+function getOriginOfR2(veryStart, callback) {
+    var east1 = moveEast(veryStart, callback);
+    var east2 = moveEast(east1, callback);
+    return moveNorth(east2, callback);
 }
 
-function getDestinationOfR1() {
+function calcR1coords(start, callback) {
+    var itinerary = [];
+    itinerary.push(getOriginOfR1(start, callback));
+    itinerary.push(moveWest(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveSouth(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveEast(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveNorth(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveEast(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveSouth(itinerary[itinerary.length - 1], callback));   // 6
+    itinerary.push(moveWest(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveSouth(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveEast(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveNorth(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveEast(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveNorth(itinerary[itinerary.length - 1], callback)); // 12
+    itinerary.push(moveWest(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveEast(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveEast(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveSouth(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveWest(itinerary[itinerary.length - 1], callback)); // 17
+    itinerary.push(moveSouth(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveWest(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveSouth(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveWest(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveNorth(itinerary[itinerary.length - 1], callback)); // 22
+    itinerary.push(moveWest(itinerary[itinerary.length - 1], callback));
+    itinerary.push(moveNorth(itinerary[itinerary.length - 1], callback));
+    return itinerary;
+}
+function calcR2coords(start, callback) {
+    var itinerary = [];
+    itinerary.push(getOriginOfR2(start, callback));
+    itinerary.push(moveSouth(itinerary[itinerary.length-1], callback));
+    itinerary.push(moveWest(itinerary[itinerary.length-1], callback));
+    itinerary.push(moveSouth(itinerary[itinerary.length-1], callback));
+    itinerary.push(moveEast(itinerary[itinerary.length-1], callback));
+    itinerary.push(moveNorth(itinerary[itinerary.length-1], callback));    // 5
+    itinerary.push(moveSouth(itinerary[itinerary.length-1], callback));
+    itinerary.push(moveSouth(itinerary[itinerary.length-1], callback));
+    itinerary.push(moveWest(itinerary[itinerary.length-1], callback));
+    itinerary.push(moveNorth(itinerary[itinerary.length-1], callback));
+    itinerary.push(moveWest(itinerary[itinerary.length-1], callback));     // 10
+    itinerary.push(moveSouth(itinerary[itinerary.length-1], callback));
+    itinerary.push(moveEast(itinerary[itinerary.length-1], callback));
+    itinerary.push(moveWest(itinerary[itinerary.length-1], callback));
+    itinerary.push(moveWest(itinerary[itinerary.length-1], callback));
+    itinerary.push(moveWest(itinerary[itinerary.length-1], callback));     // 15
+    itinerary.push(moveNorth(itinerary[itinerary.length-1], callback));
+    itinerary.push(moveNorth(itinerary[itinerary.length-1], callback));
+    itinerary.push(moveSouth(itinerary[itinerary.length-1], callback));
+    itinerary.push(moveEast(itinerary[itinerary.length-1], callback));
+    itinerary.push(moveSouth(itinerary[itinerary.length-1], callback));    // 20
+
+    return itinerary;
 
 }
 
@@ -99,23 +189,26 @@ function prepareDirections(request, directionsService, directionsDisplay) {
 }
 
 function prepareMarker (coords){
-
   marker = new google.maps.Marker({
       position: coords,
       map: map
   });
   return marker;
 }
+function prepareMarkers (itinerary) {
+    var markers = [];
+    for (var i = 0; i < itinerary.length; i++) {
+        markers.push(prepareMarker(itinerary[i]));
+    }
+    return markers;
+}
 
 
-
-function toRadians(number)
-{
+function toRadians(number) {
     return number * Math.PI / 180;
 }
 
-function toDegrees(number)
-{
+function toDegrees(number) {
     return number * 180 / Math.PI;
 }
 
