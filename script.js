@@ -5,7 +5,7 @@
 var map;
 var marker;
 var markers = [];
-
+var fcuk;
 
 function initMap() {
 
@@ -36,8 +36,9 @@ function initMap() {
         var directionsResponse1 = null;
         var i1Markers       = [];
         var i2Markers       = [];
+        var routes          = [];
 
-        var start = {lat: event.latLng.lat(), lng: event.latLng.lng()};
+        var start = {lat: 56.94771280770673, lng: 24.196314811706543};
         var spherical = google.maps.geometry.spherical;
 
         // markers.push(prepareMarker(moveNorth(start, distance, spherical)));
@@ -67,11 +68,11 @@ function initMap() {
 
             Promise.all([requestAsync(request1), requestAsync(request2)])
                 .then(function(responses) {
-                     directionsDisplay1.setDirections(responses[0]);
-                     directionsDisplay2.setDirections(responses[1]);
-                     console.log(responses[0]);
-                     console.log(responses[1]);
-
+                    //directionsDisplay1.setDirections(responses[0]);
+                    //directionsDisplay2.setDirections(responses[1]);
+                    console.log(responses[0]);
+                    console.log(responses[1]);
+                    routes.push(prepareRoute0(responses[0]));
 
                 });
 
@@ -89,6 +90,84 @@ function initMap() {
         //prepareDirections(request, directionsService, directionsDisplay1);
 
     });
+}
+
+function prepareRoute0(resp0) {
+    var legs = resp0.routes[0].legs;
+    var coords = {waypoints: [], path: new mySet()};
+
+    fillLineCoords(legs[9], coords, "matching");
+    fillLineCoords(legs[5], coords, "opposite");
+    fillLineCoords(legs[4], coords, "opposite");
+    fillLineCoords(legs[0], coords, "matching");
+    fillLineCoords(legs[1], coords, "matching");
+    fillLineCoords(legs[22], coords, "opposite");
+    fillLineCoords(legs[8], coords, "matching");
+    coords.path.lock();
+    createPolyline(coords.path.values());
+
+    return coords;
+}
+function createPolyline(path) {
+    var line = new google.maps.Polyline({
+        path: path,
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.5,
+        strokeWeight: 4
+    });
+
+    line.setMap(map);
+
+    // for (var i = 0; i < line.getPath().length; i++) {
+    //     var marker = new google.maps.Marker({
+    //         icon: {
+    //             path: google.maps.SymbolPath.CIRCLE,
+    //             scale: 3
+    //         },
+    //         position: line.getPath().getAt(i),
+    //         map: map
+    //     });
+    // }
+}
+
+function fillLineCoords(leg, coords, orientation) {
+    coords.waypoints.push(leg.start_location);
+    if (orientation === "matching") {
+        for (var i = 0; i < leg.steps.length; i++){
+            for (var j = 1; j < leg.steps[i].path.length; j++) {
+                coords.path.add(leg.steps[i].path[j])
+            }
+        }
+    } else if (orientation === "opposite") {
+        for (var i = leg.steps.length - 1; i >= 0; i--){
+            for (var j = leg.steps[i].path.length - 1; j >= 1; j--) {
+                coords.path.add(leg.steps[i].path[j])
+            }
+        }
+    } else
+        alert("unknown orientation");
+}
+
+function findRepetedDirections(response) {
+    var coords = ["0", "1", "2", "3"];
+    var frontCoords = undefined;
+    var backCoords  = undefined;
+
+    for(var i = 0; i < response.routes[0].legs.length; i ++) {
+        for(var j = 0; j < response.routes[0].legs[i].steps.length; j++) {
+            for(var k = 0; k < response.routes[0].legs[i].steps[j].path.length; k++) {
+
+                coords.push(String(fcuk.routes[0].legs[i].steps[j].path[k].lat()) + " - " + String(fcuk.routes[0].legs[i].steps[j].path[k].lng()));
+                coords.shift();
+
+                if (coords[0] === coords[3]) {
+                    console.log(coords[0] + " REPEATED DIRECTION!!!");
+                    prepareMarker2({lat: fcuk.routes[0].legs[i].steps[j].path[k].lat(), lng: fcuk.routes[0].legs[i].steps[j].path[k].lng()})
+
+                }
+            }
+        }
+    }
 }
 
 function fillStopovers(markers) {
@@ -189,24 +268,59 @@ function calcR2coords(start, callback) {
     return itinerary;
 
 }
+function mySet() {
+    var set = {};
 
+    this.add = function(input) {
+        var key = String(input.lat()) + "-" + String(input.lng());
+        if (this.duplicateCheck(key))
+            delete set[key];
+        else
+            set[key] = input;
+    };
 
-function prepareDirections(request, directionsService, directionsDisplay) {
-    directionsService.route(request, function(response, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(response);
-            console.log(response);
-            document.getElementById("distanceOutput").value = computeTotalDistance(response).toFixed(2) + " km";
-        } else { alert("couldn't get directions:"+status);}
-    });
+    this.duplicateCheck = function(input) {
+        for (var key in set) {
+            if (input === key)
+               return true;
+        }
+        return false;
+    };
+
+    this.remove = function(str) {
+        delete setObj[str];
+    };
+
+    this.values = function() {
+        var values = [];
+        for (var key in set) {
+            values.push(set[key]);
+        }
+        return values;
+    };
+
+    this.lock = function () {
+        for (var key in set) {
+            var newKey = key + "-end";
+            set[newKey] = (set[key]);
+            break;
+        }
+    }
 }
 
 function prepareMarker (coords){
   marker = new google.maps.Marker({
       position: coords,
-      map: map
+      //map: map
   });
   return marker;
+}
+function prepareMarker2 (coords){
+    marker = new google.maps.Marker({
+        position: coords,
+        map: map
+    });
+    return marker;
 }
 function prepareMarkers (itinerary) {
     var markers = [];
@@ -214,14 +328,6 @@ function prepareMarkers (itinerary) {
         markers.push(prepareMarker(itinerary[i]));
     }
     return markers;
-}
-
-function toRadians(number) {
-    return number * Math.PI / 180;
-}
-
-function toDegrees(number) {
-    return number * 180 / Math.PI;
 }
 
 function computeTotalDistance(result) {
